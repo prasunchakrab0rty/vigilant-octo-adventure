@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-gen-location',
   templateUrl: './gen-location.component.html',
-  styleUrls: ['./gen-location.component.css']
+  styleUrls: ['./gen-location.component.css'],
 })
 export class GenLocationComponent implements OnInit {
+  title = 'Admin View';
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
