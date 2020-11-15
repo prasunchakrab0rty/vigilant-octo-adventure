@@ -1,6 +1,9 @@
 const router = require('express').Router();
-const commonController = require('./common.controller');
+const geocodeController = require('./geocode.controller');
+const loginController = require('./login.controller');
 
-router.get('/getLatLong', commonController.getLatLong);
+router.get('/getLatLong', geocodeController.getLatLong);
+router.post('/login', loginController.login);
+router.post('/register', loginController.register);
 
 module.exports = router;

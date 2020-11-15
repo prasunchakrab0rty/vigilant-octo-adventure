@@ -6,7 +6,6 @@ const logger = log4js.getLogger('admin.controller');
 logger.level = config.logLevel;
 
 async function setCity(req, res) {
-  // eslint-disable-next-line object-curly-newline
   const { name, latitude, longitude, radius } = req.body;
   try {
     const setCityDoc = new MasterCityModel({

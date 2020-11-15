@@ -11,6 +11,7 @@ module.exports = {
   rules: {
     'comma-dangle': ['error', 'never'],
     'prefer-destructuring': 'off',
-    'operator-linebreak': 'off'
+    'operator-linebreak': 'off',
+    'object-curly-newline': 'off'
   }
 };

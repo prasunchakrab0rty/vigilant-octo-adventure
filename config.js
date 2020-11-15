@@ -4,5 +4,6 @@ module.exports = {
   geoProvider: {
     name: 'openstreetmap',
     apiKey: null
-  }
+  },
+  saltRounds: 2
 };

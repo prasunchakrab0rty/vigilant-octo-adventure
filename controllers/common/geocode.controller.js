@@ -6,7 +6,7 @@ const options = {
   provider: config.geoProvider.name
 };
 const geoCoder = nodeGeocoder(options);
-const logger = log4js.getLogger('common.controller');
+const logger = log4js.getLogger('geocode.controller');
 logger.level = config.logLevel;
 
 async function getLatLong(req, res) {
