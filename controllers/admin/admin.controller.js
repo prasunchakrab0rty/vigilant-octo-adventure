@@ -1,20 +1,15 @@
 const log4js = require('log4js');
-const nodeGeocoder = require('node-geocoder');
 const config = require('../../config');
-const SetCityModel = require('../../models/setCity.model');
+const MasterCityModel = require('../../models/masterCity.model');
 
 const logger = log4js.getLogger('admin.controller');
 logger.level = config.logLevel;
-const options = {
-  provider: config.geoProvider.name
-};
-const geoCoder = nodeGeocoder(options);
 
 async function setCity(req, res) {
   // eslint-disable-next-line object-curly-newline
   const { name, latitude, longitude, radius } = req.body;
   try {
-    const setCityDoc = new SetCityModel({
+    const setCityDoc = new MasterCityModel({
       name,
       latitude,
       longitude,
@@ -28,20 +23,6 @@ async function setCity(req, res) {
   }
 }
 
-async function getCity(req, res) {
-  const { cityName } = req.query;
-  try {
-    const result = await geoCoder.geocode(cityName);
-    return res.status(201).send({ message: 'City List', result });
-  } catch (err) {
-    logger.error(err);
-    return res
-      .status(400)
-      .send({ message: 'Error fetching City List', result: {} });
-  }
-}
-
 module.exports = {
-  setCity,
-  getCity
+  setCity
 };

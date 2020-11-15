@@ -9,6 +9,8 @@ module.exports = {
     ecmaVersion: 12
   },
   rules: {
-    'comma-dangle': ['error', 'never']
+    'comma-dangle': ['error', 'never'],
+    'prefer-destructuring': 'off',
+    'operator-linebreak': 'off'
   }
 };
