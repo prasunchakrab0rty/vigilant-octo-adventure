@@ -3,9 +3,12 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const log4js = require('log4js');
 
+const appRouter = require('./appRouter');
+const config = require('./config');
+
 const app = express();
-const logger = log4js.getLogger();
-logger.level = 'debug'; // TODO: Move to config
+const logger = log4js.getLogger('app.js');
+logger.level = config.logLevel;
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,7 +19,7 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use('/api', appRouter);
+app.use('/api', appRouter);
 
 app.get('/', (req, res) => {
   res.send('Welcome to Geo Distance API');
@@ -24,7 +27,7 @@ app.get('/', (req, res) => {
 
 try {
   mongoose.connect(
-    'mongodb://localhost/TestDb',
+    config.mongodbUrl,
     {
       useUnifiedTopology: true,
       useNewUrlParser: true
