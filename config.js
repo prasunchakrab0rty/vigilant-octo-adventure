@@ -1,4 +1,8 @@
 module.exports = {
   mongodbUrl: 'mongodb://localhost/cc-challange',
-  logLevel: 'debug'
+  logLevel: 'debug',
+  geoProvider: {
+    name: 'openstreetmap',
+    apiKey: null
+  }
 };
