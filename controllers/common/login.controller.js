@@ -1,5 +1,6 @@
 const log4js = require('log4js');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 const UserModel = require('../../models/user.model');
 const config = require('../../config');
 
@@ -17,7 +18,12 @@ async function login(req, res) {
     if (!compare) {
       return res.status(401).send({ message: 'password do not match' });
     }
-    return res.status(200).send({ message: 'log in success', userDoc });
+    const { firstName, lastName, isAdmin } = userDoc;
+    const token = jwt.sign(
+      { firstName, lastName, isAdmin },
+      config.accessToken
+    );
+    return res.status(200).send({ message: 'log in success', token });
   } catch (err) {
     logger.error(err);
     return res
