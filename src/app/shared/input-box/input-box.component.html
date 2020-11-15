@@ -4,9 +4,27 @@
   </div>
   <div class="card-body">
     <div class="row">
-      <div class="col-md-2">Filter By:</div>
-      <div class="col-md-4">
-        <input type="text" [(ngModel)]="listFilter" />
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="City Name"
+          aria-label="City Name"
+          aria-describedby="basic-addon2"
+          [(ngModel)]="text"
+        />
+        <div class="input-group-append">
+          <button class="btn btn-outline-primary" type="button">
+            {{ action }}
+          </button>
+          <button
+            class="btn btn-outline-secondary"
+            (click)="onClear()"
+            type="button"
+          >
+            Clear
+          </button>
+        </div>
       </div>
     </div>
   </div>

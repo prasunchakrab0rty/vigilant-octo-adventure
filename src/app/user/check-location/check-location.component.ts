@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CheckLocationComponent implements OnInit {
   title = 'User View';
+  action = 'Search';
   constructor() {}
 
   ngOnInit(): void {}

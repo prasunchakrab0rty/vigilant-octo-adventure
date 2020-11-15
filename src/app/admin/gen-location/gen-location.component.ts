@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GenLocationComponent implements OnInit {
   title = 'Admin View';
+  action = 'Set';
+
   constructor() {}
 
   ngOnInit(): void {}

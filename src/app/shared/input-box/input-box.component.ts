@@ -1,14 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-box',
   templateUrl: './input-box.component.html',
   styleUrls: ['./input-box.component.css'],
 })
-export class InputBoxComponent implements OnInit {
+export class InputBoxComponent {
   pageTitle = 'Input Box';
-  listFilter: string;
-  constructor() {}
-
-  ngOnInit(): void {}
+  text: string;
+  @Input() action: string;
+  @Output() opText: EventEmitter<number> = new EventEmitter();
+  onClear() {
+    this.text = '';
+  }
 }
